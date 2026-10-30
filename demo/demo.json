@@ -1,0 +1,12 @@
+{"url":"http://localhost:4423","voice":"sage","steps":[
+{"say":"Quiet Mesh routes help requests to volunteers only through interruption agreements they wrote themselves. It is for mutual aid groups and volunteer networks that want to protect people's attention.","do":[{"wait":1500}]},
+{"say":"Each row is a volunteer. The teal bars are the hours they agreed to be interrupted, and the amber line is the mesh clock. Right now it is Monday at eleven in the morning.","do":[{"select":["#day","0"]},{"eval":"document.querySelector('#time').value='11:00';document.querySelector('#time').dispatchEvent(new Event('change'))"}]},
+{"say":"I send a request in plain words: a contract question with no rush.","do":[{"click":"[data-ex^='Could someone review']"},{"wait":800}]},
+{"say":"Nemotron on Nebius Token Factory reads it and proposes a topic, an urgency and the skills needed.","do":[{"click":"#go"},{"wait":9000}]},
+{"say":"The only legal volunteer, Luis, works Tuesdays and Thursdays, so the router does not interrupt anyone. The request is held, and each person's reason is listed.","do":[{"scroll":"#result"}]},
+{"say":"Now I move the clock forward a day. The queue is checked again, and the request is delivered to Luis because his window has opened.","do":[{"click":"[data-step='1440']"},{"wait":1500}]},
+{"say":"Next, an emergency. Production database down, right now.","do":[{"eval":"document.querySelector('#day').value='5';document.querySelector('#time').value='03:00';document.querySelector('#day').dispatchEvent(new Event('change'))"},{"click":"[data-ex^='Our production']"}]},
+{"say":"It is Saturday at three in the morning. Nemotron marks it critical, and the app confirms the text really contains an emergency cue before accepting that. Only volunteers who allowed critical breakthrough can be reached.","do":[{"click":"#go"},{"wait":9000}]},
+{"say":"Ana and Priya both qualify. The router chooses the better skill match and shows why the others were skipped. Agreements are editable, and every change takes effect on the next request.","do":[{"click":".row[data-id='dev'] .rowbtn"},{"wait":1500}]},
+{"say":"Nemotron only classifies the request. Every routing decision is a plain check over the agreements. That is Quiet Mesh."}
+]}

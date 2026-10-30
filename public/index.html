@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiet Mesh</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="4" cy="11" r="2.6"/><circle cx="18" cy="5" r="2.6"/><circle cx="18" cy="17" r="2.6"/><path d="M6 10 16 5.6M6 12l10 4.4" /></svg><span>Quiet Mesh</span></div>
+  <div class="clock" role="group" aria-label="Mesh clock">
+    <label for="day">Day</label>
+    <select id="day"></select>
+    <label for="time">Time</label>
+    <input id="time" type="time" value="10:00">
+    <button class="ghost" data-step="60" title="Advance one hour">+1h</button>
+    <button class="ghost" data-step="240" title="Advance four hours">+4h</button>
+    <button class="ghost" data-step="1440" title="Advance one day">+1d</button>
+  </div>
+  <div id="model" class="model" role="status"></div>
+</header>
+
+<main>
+  <section class="board" aria-labelledby="bt">
+    <div class="boardhead"><h1 id="bt">Who can be interrupted right now</h1><div class="ticks" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div></div>
+    <div id="rows"></div>
+    <p class="legend"><i class="sw win"></i>agreed window <i class="sw head"></i>mesh clock <i class="sw bt"></i>allows critical breakthrough</p>
+  </section>
+
+  <aside class="side">
+    <form id="form" class="compose">
+      <label for="text" class="h">Send a request</label>
+      <textarea id="text" rows="4" maxlength="2000" placeholder="Describe what you need, in your own words…"></textarea>
+      <div class="examples" aria-label="Example requests">
+        <button type="button" class="chip" data-ex="Our production Postgres replica is down and checkout is failing right now.">outage</button>
+        <button type="button" class="chip" data-ex="Could someone review our privacy policy wording against GDPR when they get a chance?">legal, no rush</button>
+        <button type="button" class="chip" data-ex="I'm completely overwhelmed after tonight's shift and need someone to talk to.">wellbeing</button>
+        <button type="button" class="chip" data-ex="Can someone check our donation page with a screen reader? Launch is tomorrow.">accessibility</button>
+      </div>
+      <button id="go" class="primary" type="submit">Route request</button>
+    </form>
+    <div id="result" aria-live="polite"></div>
+  </aside>
+
+  <section class="flow">
+    <div>
+      <h2>Held in queue <span id="qn" class="n"></span></h2>
+      <ul id="queue" class="list"></ul>
+    </div>
+    <div>
+      <h2>Delivered <span id="ln" class="n"></span></h2>
+      <ul id="log" class="list"></ul>
+    </div>
+  </section>
+</main>
+<script src="/app.js" type="module"></script>
+</body>
+</html>
